@@ -6,7 +6,7 @@
 #    By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/29 18:58:25 by minsunki          #+#    #+#              #
-#    Updated: 2021/05/30 13:35:01 by minsunki         ###   ########.fr        #
+#    Updated: 2021/05/30 19:29:43 by minsunki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ bonus		:	$(OBJ_SB) $(OBJ_CB)
 			$(CC) $(OBJ_CB) $(CFLAG) -o $(CLIENT)
 
 clean		:
-			$(RM) $(OBJ_S) $(OBJ_C)
+			$(RM) $(OBJ_S) $(OBJ_C) $(OBJ_SB) $(OBJ_CB)
 
 fclean		:	clean
 			$(RM) $(SERVER) $(CLIENT)
