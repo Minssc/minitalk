@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 23:18:04 by minsunki          #+#    #+#             */
-/*   Updated: 2021/05/30 19:11:01 by minsunki         ###   ########.fr       */
+/*   Updated: 2021/05/30 20:04:07 by minsunki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void		sighandl(int sig, siginfo_t *sigi, void *context)
 	static int	bc;
 
 	(void)context;
+	if (kill(sigi->si_pid, sig) != 0)
+		return ;
 	if (sig == SIGUSR1)
 		dat |= (1 << bc);
 	if (++bc == 8)
@@ -29,7 +31,6 @@ static void		sighandl(int sig, siginfo_t *sigi, void *context)
 			write(1, "\n", 1);
 		dat = 0;
 	}
-	kill(sigi->si_pid, sig);
 }
 
 static void		mset(void *p, int n)
