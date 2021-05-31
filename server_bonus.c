@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 23:18:04 by minsunki          #+#    #+#             */
-/*   Updated: 2021/05/30 20:04:07 by minsunki         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:05:04 by minsunki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void		sighandl(int sig, siginfo_t *sigi, void *context)
 	static int	bc;
 
 	(void)context;
+	if (!sigi->si_pid)
+		return ;
 	if (kill(sigi->si_pid, sig) != 0)
 		return ;
 	if (sig == SIGUSR1)
